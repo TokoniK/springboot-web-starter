@@ -1,0 +1,37 @@
+#spring.data.rest.basePath=/api
+config:
+  session-length: 300
+
+server:
+  servlet:
+    context-path: /starter/api
+  port: 8080
+
+eclipselink:
+  weaving:false
+
+spring:
+  web:
+    resources:
+      add-mappings: false
+
+  jpa:
+    show-sql: true
+  datasource:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    db1:
+      url: jdbc:postgresql://localhost:5435/test
+      username: test
+      password: db1
+      driver-class-name: org.postgresql.Driver
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+logging:
+  level:
+    org.springframework.security:  trace
+
+hibernate:
+  enable_lazy_load_no_trans: true
