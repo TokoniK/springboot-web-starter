@@ -7,11 +7,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestService extends AbstractService<Test>{
 
-    TestRepository testRepository;
+//    TestRepository testRepository;
     public TestService(TestRepository testRepository) {
-        //    @Autowired
-        this.setRepo(testRepository);
-        this.testRepository = testRepository;
+        super(testRepository);
     }
 
 }

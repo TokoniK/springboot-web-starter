@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import com.tokonik.webstarter.exceptions.ResponseException;
 import com.tokonik.webstarter.services.AbstractService;
 import com.tokonik.webstarter.util.ServiceResponse;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

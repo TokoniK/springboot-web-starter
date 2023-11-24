@@ -30,14 +30,18 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public abstract class AbstractService<E extends Serializable>  {
+//public abstract class AbstractService<E extends Serializable, R extends JpaRepository<E,Integer>>  {
+public abstract class AbstractService<E extends Serializable> {
 
-    JpaRepository<E,Integer> repo;
-
+    JpaRepository<E,Object> repo;
+//    R repo;
     List<String> uniqueAttributes;
 
     @Autowired
     EntityManager entityManager;
+    public <R extends JpaRepository<E,?>> AbstractService(R repo){
+        this.repo = (JpaRepository<E, Object>) repo;
+    }
 
     public ServiceResponse<List<E>> getAll() {
 
@@ -50,7 +54,7 @@ public abstract class AbstractService<E extends Serializable>  {
     }
 
     public ServiceResponse<E> getById(Integer id){
-        E result = repo.findById(id).orElse(null);
+        E result = (E) repo.findById(id).orElse(null);
         if(result==null){
             return new ServiceResponse<>(result, HttpStatus.NOT_FOUND, null);
         }
@@ -324,10 +328,11 @@ public abstract class AbstractService<E extends Serializable>  {
 
     //////////
 
-    public void setRepo(JpaRepository<E,Integer> jpaRepository){
-        this.repo =jpaRepository;
-
-    }
+//    public void setRepo(JpaRepository<E,Integer> jpaRepository){
+//    public void setRepo(R jpaRepository){
+//        this.repo =jpaRepository;
+//
+//    }
 
     public void setUniqueAttributes(List<String> uniqueAttributes) {
         this.uniqueAttributes = uniqueAttributes;
