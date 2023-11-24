@@ -5,10 +5,7 @@ import jakarta.persistence.Table;
 
 import java.io.Serializable;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -24,6 +21,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 
 public class Test implements Serializable {
 	private static final long serialVersionUID = 1L;
