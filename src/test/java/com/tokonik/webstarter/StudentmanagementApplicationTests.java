@@ -22,8 +22,4 @@ class StudentmanagementApplicationTests {
         assertThat(controller).isNotNull();
     }
 
-//	@Test
-//	void contextLoads() {
-//	}
-
 }
