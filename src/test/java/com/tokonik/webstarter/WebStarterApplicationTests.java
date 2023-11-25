@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @Suite
 @SelectPackages({"com.tokonik.webstarter.service","com.tokonik.webstarter.controllers"})
-class StudentmanagementApplicationTests {
+class WebStarterApplicationTests {
 
     @Autowired
     private TestController controller;
